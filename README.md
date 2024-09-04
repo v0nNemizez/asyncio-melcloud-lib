@@ -47,16 +47,11 @@ devices = await client.get_devices()
 await client.set_temp(device_id='device_id', temperature=22)
 ```
 
-- Get the current temperature of a specific device:
-
-```python
-temperature = await client.get_temperature(device_id='device_id')
-```
-
 For more examples and detailed documentation, please refer to the [official documentation](https://github.com/your_username/asyncio-melcloud-lib).
 
 ## Contributing:
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request on the [GitHub repository](https://github.com/your_username/asyncio-melcloud-lib).
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request on the [GitHub repository](https://github.com/v0nNemizez/asyncio-melcloud-lib).
 
 ## License:
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/your_username/asyncio-melcloud-lib/blob/main/LICENSE) file for more information.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/v0nNemizez/asyncio-melcloud-lib/blob/main/LICENSE) file for more information.
+cd 
