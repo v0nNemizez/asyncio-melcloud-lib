@@ -47,6 +47,32 @@ devices = await client.get_devices()
 await client.set_temp(device_id='device_id', temperature=22)
 ```
 
+- Example of complete code (Login and turns off the device):
+
+```python
+import asyncio
+from lib.melcloud.devices import Device
+from lib.melcloud.melcloudclient import MelcloudClient
+from lib.melcloud.jsongenerator import OperationMode
+import logging
+
+basicConfig = logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+
+client = MelcloudClient("your_undername", "your_password")
+
+async def main():
+    logging.debug(await client.login())
+    await client.get_devices()
+    await client.set_device_settings()
+    for device in client.devices:
+       await client.change_power_state(device.device_id, "true") # <---- set this to false to turn off the device
+    await client.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
 For more examples and detailed documentation, please refer to the [official documentation](https://github.com/your_username/asyncio-melcloud-lib).
 
 ## Contributing:
