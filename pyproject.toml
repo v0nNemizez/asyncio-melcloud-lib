@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncio-melcloud-lib"
-version = "1.0.0"
+version = "1.0.1git"
 description = "A async client for interacting with the MELCloud API"
 authors = ["Simen Andrè Vikestrand Skogum <v0nNemize@gmail.com>"]
 license = "MIT"
@@ -11,8 +11,9 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.8"
 aiohttp = "^3.10.5"
+mkdocs = "^1.6.1"
 
 [build-system]
 requires = ["poetry-core"]
