@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "asyncio-melcloud-lib"
-version = "1.0.1"
+name = "asynciomelcloudlib"
+version = "1.0.2"
 description = "A async client for interacting with the MELCloud API"
 authors = ["Simen Andrè Skogum <v0nNemize@gmail.com>"]
 license = "MIT"
