@@ -20,13 +20,13 @@ pip install asyncio-melcloud-lib
 To get started with the asyncio-melcloud-lib library, import it into your Python project:
 
 ```python
-import asynciomelcloudlib
+import melcloudlibasyncio
 ```
 
 Then, create an instance of the `MelCloudClient` class and authenticate with your MelCloud credentials:
 
 ```python
-client = asynciomelcloudlib.MelCloudClient(username='your_username', password='your_password')
+client = melcloudlibasyncio.MelCloudClient(username='your_username', password='your_password')
 await client.login()
 ```
 
@@ -80,4 +80,3 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 
 ## License:
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/v0nNemizez/asyncio-melcloud-lib/blob/main/LICENSE) file for more information.
-cd 
