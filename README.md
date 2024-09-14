@@ -13,7 +13,7 @@ This project is a Python library that provides an asynchronous interface for int
 To install the asyncio-melcloud-lib library, simply run the following command:
 
 ```
-pip install asyncio-melcloud-lib
+pip install melcloudlibasyncio
 ```
 
 ## Usage:
