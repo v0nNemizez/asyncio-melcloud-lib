@@ -3,6 +3,7 @@ import logging
 from .devices import Device
 from .jsongenerator import OperationMode
 from .jsongenerator import EffectiveFlags
+from .helpers import device_exists 
 
 log  = logging.getLogger(__name__)
 
@@ -53,12 +54,14 @@ class MelcloudClient:
             try:
                 j = await response.json()
                 for device in j:
-                    d = Device()
-                    await d.set_device_id(device['Structure']['Devices'][0]['BuildingID'], 
-                                          device['Structure']['Devices'][0]['DeviceID'], 
+                    device_id = device['Structure']['Devices'][0]['DeviceID']
+                    if not device_exists(self.devices, device_id):
+                        d = Device()
+                        await d.set_device_id(device['Structure']['Devices'][0]['BuildingID'], 
+                                          device_id, 
                                           device['Structure']['Devices'][0]['DeviceName'])
 
-                    self.devices.append(d)
+                        self.devices.append(d)
                 log.info(f"Devices loaded. Found {len(self.devices)} devices")
             
             except aiohttp.client_exceptions.ContentTypeError as e:
