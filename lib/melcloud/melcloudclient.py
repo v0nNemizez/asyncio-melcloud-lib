@@ -34,6 +34,7 @@ class MelcloudClient:
                 return False
             try:
                 j = await response.json()
+                log.info(msg=j)
                 self.contextKey = j["LoginData"]["ContextKey"]
                 return self.contextKey
             except aiohttp.client_exceptions.ContentTypeError as e:
@@ -55,6 +56,7 @@ class MelcloudClient:
                 j = await response.json()
                 for device in j:
                     device_id = device['Structure']['Devices'][0]['DeviceID']
+                    log.debug(f'found device {device_id}')
                     if not device_exists(self.devices, device_id):
                         d = Device()
                         await d.set_device_id(device['Structure']['Devices'][0]['BuildingID'], 
@@ -63,6 +65,7 @@ class MelcloudClient:
 
                         self.devices.append(d)
                 log.info(f"Devices loaded. Found {len(self.devices)} devices")
+                return self.devices
             
             except aiohttp.client_exceptions.ContentTypeError as e:
                 logging.error(f"Error: {e}")
@@ -151,6 +154,7 @@ class MelcloudClient:
                 await device.jsonGenerator.set_new_fanspeed(speed)
                 await device.jsonGenerator.set_EffectiveFlags(EffectiveFlags.CHANGE_FANSPEED.value)
                 data = await device.create_request()
+                log.info(data)
                 async with self.session.post(url, headers=headers, json=data) as response:
                     if response.status != 200:
                         logging.error(f"Error: Received status code {response.status}")
