@@ -65,6 +65,7 @@ class MelcloudClient:
 
                         self.devices.append(d)
                 log.info(f"Devices loaded. Found {len(self.devices)} devices")
+                return self.devices
             
             except aiohttp.client_exceptions.ContentTypeError as e:
                 logging.error(f"Error: {e}")
